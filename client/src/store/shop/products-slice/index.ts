@@ -30,7 +30,7 @@ export const fetchAllFilteredProducts = createAsyncThunk(
       sortBy: sortParams,
     }).toString();
 
-    const result = await axios.get(`https://ecommerce-store-olive-delta.vercel.app/api/shop/products/get?${query}`);
+    const result = await axios.get(`https://ecommerce-store-uz8o.vercel.app/api/shop/products/get?${query}`);
     console.log(result);
     return result.data;
   }
@@ -39,7 +39,7 @@ export const fetchAllFilteredProducts = createAsyncThunk(
 export const fetchProductDetails = createAsyncThunk(
   "products/fetchProductDetails",
   async (id: string) => {
-    const result = await axios.get(`https://ecommerce-store-olive-delta.vercel.app/api/shop/products/get/${id}`);
+    const result = await axios.get(`https://ecommerce-store-uz8o.vercel.app/api/shop/products/get/${id}`);
     return result.data;
   }
 );

@@ -19,7 +19,7 @@ const initialState: CartState = {
 export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async ({ userId, productId, quantity }: { userId: string; productId: string; quantity: number }) => {
-    const response = await axios.post("https://ecommerce-store-olive-delta.vercel.app/api/shop/cart/add", {
+    const response = await axios.post("https://ecommerce-store-uz8o.vercel.app/api/shop/cart/add", {
       userId,
       productId,
       quantity,
@@ -31,7 +31,7 @@ export const addToCart = createAsyncThunk(
 export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async (userId: string) => {
-    const response = await axios.get(`https://ecommerce-store-olive-delta.vercel.app/api/shop/cart/get/${userId}`);
+    const response = await axios.get(`https://ecommerce-store-uz8o.vercel.app/api/shop/cart/get/${userId}`);
     return response.data;
   }
 );
@@ -39,7 +39,7 @@ export const fetchCartItems = createAsyncThunk(
 export const deleteCartItem = createAsyncThunk(
   "cart/deleteCartItem",
   async ({ userId, productId }: { userId: string; productId: string }) => {
-    const response = await axios.delete(`https://ecommerce-store-olive-delta.vercel.app/api/shop/cart/${userId}/${productId}`);
+    const response = await axios.delete(`https://ecommerce-store-uz8o.vercel.app/api/shop/cart/${userId}/${productId}`);
     return response.data;
   }
 );
@@ -47,7 +47,7 @@ export const deleteCartItem = createAsyncThunk(
 export const updateCartQuantity = createAsyncThunk(
   "cart/updateCartQuantity",
   async ({ userId, productId, quantity }: { userId: string; productId: string; quantity: number }) => {
-    const response = await axios.put("http://localhost:5000/api/shop/cart/update-cart", {
+    const response = await axios.put("https://ecommerce-store-uz8o.vercel.app/api/shop/cart/update-cart", {
       userId,
       productId,
       quantity,
