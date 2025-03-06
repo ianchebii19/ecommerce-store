@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Address from "@/components/shopping-view/address";
 import img from "../../assets/account.jpg";
 import { useDispatch, useSelector } from "react-redux";

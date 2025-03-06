@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import {

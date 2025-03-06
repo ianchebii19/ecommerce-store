@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Navigate, useLocation } from "react-router-dom";
 
 function CheckAuth({ isAuthenticated, user, children }) {

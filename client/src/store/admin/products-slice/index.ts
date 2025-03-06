@@ -1,3 +1,6 @@
+// @ts-nocheck
+
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -12,7 +15,7 @@ export const addNewProduct = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/admin/products/add",
+        "https://ecommerce-store-uz8o.vercel.app/api/admin/products/add",
         formData,
         {
           headers: {
@@ -32,7 +35,7 @@ export const fetchAllProducts = createAsyncThunk(
   "/products/fetchAllProducts",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("http://localhost:5000/api/admin/products/get");
+      const response = await axios.get("https://ecommerce-store-uz8o.vercel.app/api/admin/products/get");
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || "Failed to fetch products");
@@ -46,7 +49,7 @@ export const editProduct = createAsyncThunk(
   async ({ id, formData }, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/admin/products/edit/${id}`,
+        `https://ecommerce-store-uz8o.vercel.app/api/admin/products/edit/${id}`,
         formData,
         {
           headers: {

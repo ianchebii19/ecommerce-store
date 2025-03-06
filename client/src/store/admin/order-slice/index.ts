@@ -22,7 +22,7 @@ const initialState: AdminOrderState = {
 export const getAllOrdersForAdmin = createAsyncThunk(
   "order/getAllOrdersForAdmin",
   async () => {
-    const response = await axios.get("http://localhost:5000/api/admin/orders/get");
+    const response = await axios.get("https://ecommerce-store-uz8o.vercel.app/api/admin/orders/get");
     return response.data;
   }
 );
@@ -30,7 +30,7 @@ export const getAllOrdersForAdmin = createAsyncThunk(
 export const getOrderDetailsForAdmin = createAsyncThunk(
   "order/getOrderDetailsForAdmin",
   async (id: string) => {
-    const response = await axios.get(`http://localhost:5000/api/admin/orders/details/${id}`);
+    const response = await axios.get(`https://ecommerce-store-uz8o.vercel.app/api/admin/orders/details/${id}`);
     return response.data;
   }
 );
@@ -38,7 +38,7 @@ export const getOrderDetailsForAdmin = createAsyncThunk(
 export const updateOrderStatus = createAsyncThunk(
   "order/updateOrderStatus",
   async ({ id, orderStatus }: { id: string; orderStatus: string }) => {
-    const response = await axios.put(`http://localhost:5000/api/admin/orders/update/${id}`, {
+    const response = await axios.put(`https://ecommerce-store-uz8o.vercel.app/api/admin/orders/update/${id}`, {
       orderStatus,
     });
     return response.data;

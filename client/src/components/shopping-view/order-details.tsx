@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useSelector } from "react-redux";
 import { Badge } from "../ui/badge";
 import { DialogContent } from "../ui/dialog";

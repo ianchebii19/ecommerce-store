@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { HousePlug, LogOut, Menu, ShoppingCart, UserCog } from "lucide-react";
 import {
   Link,

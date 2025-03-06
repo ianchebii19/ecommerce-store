@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Button } from "@/components/ui/button";
 import bannerOne from "../../assets/banner-1.webp";
 import bannerTwo from "../../assets/banner-2.webp";

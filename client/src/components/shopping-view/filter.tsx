@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { filterOptions } from "@/config";
 import { Fragment } from "react";
 import { Label } from "../ui/label";

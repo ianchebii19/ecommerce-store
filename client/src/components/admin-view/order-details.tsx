@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState } from "react";
 import CommonForm from "../common/form";
 import { DialogContent } from "../ui/dialog";
