@@ -11,7 +11,7 @@ const initialState = {
 
 // Register User
 export const registerUser = createAsyncThunk(
-  "/auth/register",
+  "auth/register",
   async (formData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
@@ -28,7 +28,7 @@ export const registerUser = createAsyncThunk(
 
 // Login User
 export const loginUser = createAsyncThunk(
-  "/auth/login",
+  "auth/login",
   async (formData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
@@ -45,10 +45,14 @@ export const loginUser = createAsyncThunk(
 
 // Logout User
 export const logoutUser = createAsyncThunk(
-  "/auth/logout",
+  "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
-      await axios.post("https://ecommerce-store-uz8o.vercel.app/api/auth/logout", {}, { withCredentials: true });
+      await axios.post(
+        "https://ecommerce-store-uz8o.vercel.app/api/auth/logout",
+        {},
+        { withCredentials: true }
+      );
       return null; // No data needed for logout
     } catch (error) {
       return rejectWithValue(error.response?.data || "Logout failed");
@@ -58,15 +62,18 @@ export const logoutUser = createAsyncThunk(
 
 // Check Authentication
 export const checkAuth = createAsyncThunk(
-  "/auth/checkauth",
+  "auth/checkAuth",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("https://ecommerce-store-uz8o.vercel.app/api/auth/check-auth", {
-        withCredentials: true,
-        headers: {
-          "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-        },
-      });
+      const response = await axios.get(
+        "https://ecommerce-store-uz8o.vercel.app/api/auth/check-auth",
+        {
+          withCredentials: true,
+          headers: {
+            "Cache-Control": "no-cache", // Simplified cache control
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || "Auth check failed");
@@ -85,6 +92,7 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // Register User
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -98,6 +106,8 @@ const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
       })
+
+      // Login User
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -111,6 +121,8 @@ const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
       })
+
+      // Check Authentication
       .addCase(checkAuth.pending, (state) => {
         state.isLoading = true;
       })
@@ -124,6 +136,8 @@ const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
       })
+
+      // Logout User
       .addCase(logoutUser.fulfilled, (state) => {
         state.isLoading = false;
         state.user = null;
