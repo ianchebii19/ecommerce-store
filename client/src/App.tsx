@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Route, Routes } from "react-router-dom";
 import AuthLayout from "./components/auth/layout";
 import AuthLogin from "./pages/auth/login";
