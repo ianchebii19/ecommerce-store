@@ -29,14 +29,14 @@ mongoose.connect(mongoURI, {
     console.log('Connected to MongoDB');
   })
   .catch((err) => {
-    console.error('Error connecting to MongoDB:', err.message);
+    console.error('Error connecting to DB:', err.message);
   });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
-  "http://localhost:5173",
+  "https://ramon-store.vercel.app/auth/login",
 ];
 
 app.use(
