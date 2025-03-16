@@ -36,7 +36,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
-  "https://ecommercestore-chi.vercel.app",
+  "http://localhost:5173",
+];
 
 app.use(
   cors({
