@@ -26,7 +26,7 @@ export const addNewAddress = createAsyncThunk(
   "/addresses/addNewAddress",
   async (formData: Omit<Address, "id">) => {
     const response = await axios.post(
-      "http://localhost:5000/api/shop/address/add",
+      "https://ecommerce-store-backend-ten.vercel.app/api/shop/address/add",
       formData
     );
     return response.data;
@@ -38,7 +38,7 @@ export const fetchAllAddresses = createAsyncThunk(
   "/addresses/fetchAllAddresses",
   async (userId: string) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/address/get/${userId}`
+      `https://ecommerce-store-backend-ten.vercel.app/shop/address/get/${userId}`
     );
     return response.data;
   }
@@ -49,7 +49,7 @@ export const editaAddress = createAsyncThunk(
   "/addresses/editaAddress",
   async ({ userId, addressId, formData }: { userId: string; addressId: string; formData: Omit<Address, "id"> }) => {
     const response = await axios.put(
-      `http://localhost:5000/api/shop/address/update/${userId}/${addressId}`,
+      `https://ecommerce-store-backend-ten.vercel.app/api/shop/address/update/${userId}/${addressId}`,
       formData
     );
     return response.data;
@@ -61,7 +61,7 @@ export const deleteAddress = createAsyncThunk(
   "/addresses/deleteAddress",
   async ({ userId, addressId }: { userId: string; addressId: string }) => {
     const response = await axios.delete(
-      `http://localhost:5000/api/shop/address/delete/${userId}/${addressId}`
+      `https://ecommerce-store-backend-ten.vercel.app/api/shop/address/delete/${userId}/${addressId}`
     );
     return response.data;
   }

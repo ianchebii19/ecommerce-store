@@ -25,7 +25,7 @@ const initialState: OrderState = {
 export const createNewOrder = createAsyncThunk(
   "order/createNewOrder",
   async (orderData: Record<string, string>) => {
-    const response = await axios.post("http://localhost:5000/api/shop/order/create", orderData);
+    const response = await axios.post("https://ecommerce-store-backend-ten.vercel.app/api/shop/order/create", orderData);
     return response.data;
   }
 );
@@ -33,7 +33,7 @@ export const createNewOrder = createAsyncThunk(
 export const capturePayment = createAsyncThunk(
   "order/capturePayment",
   async ({ paymentId, payerId, orderId }: { paymentId: string; payerId: string; orderId: string }) => {
-    const response = await axios.post("http://localhost:5000/api/shop/order/capture", {
+    const response = await axios.post("https://ecommerce-store-backend-ten.vercel.app/api/shop/order/capture", {
       paymentId,
       payerId,
       orderId,
@@ -45,7 +45,7 @@ export const capturePayment = createAsyncThunk(
 export const getAllOrdersByUserId = createAsyncThunk(
   "order/getAllOrdersByUserId",
   async (userId: string) => {
-    const response = await axios.get(`http://localhost:5000/api/shop/order/list/${userId}`);
+    const response = await axios.get(`https://ecommerce-store-backend-ten.vercel.app/api/shop/order/list/${userId}`);
     return response.data;
   }
 );
@@ -53,7 +53,7 @@ export const getAllOrdersByUserId = createAsyncThunk(
 export const getOrderDetails = createAsyncThunk(
   "order/getOrderDetails",
   async (id: string) => {
-    const response = await axios.get(`https://ecommerce-store-uz8o.vercel.app/api/shop/order/details/${id}`);
+    const response = await axios.get(`https://ecommerce-store-backend-ten.vercel.app/api/shop/order/details/${id}`);
     return response.data;
   }
 );
