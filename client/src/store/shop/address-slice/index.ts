@@ -35,7 +35,7 @@ export const addNewAddress = createAsyncThunk(
 
 // Fetch all addresses
 export const fetchAllAddresses = createAsyncThunk(
-  "/addresses/fetchAllAddresses",
+  "/addresses/fetchAllAddresse",
   async (userId: string) => {
     const response = await axios.get(
       `https://ecommerce-store-backend-ten.vercel.app/shop/address/get/${userId}`
